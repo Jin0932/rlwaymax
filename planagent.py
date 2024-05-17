@@ -89,11 +89,9 @@ while not state.is_done:
       data=jnp.array(random_a),
       valid=jnp.ones(action_spec.valid.shape, dtype=jnp.bool_),
   )
-#   print("####action",action)
   total_returns += waymax_env.reward(state, action)
   print(total_returns)
   state = waymax_env.step(state, action)
-  # print("$$$$$$state",state)
   imgs.append(visualization.plot_simulator_state(state, use_log_traj=False))
   cnt=cnt+1
   if cnt==100:
